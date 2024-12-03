@@ -42,7 +42,8 @@ isAlmostSafe :: [Int] -> Bool
 isAlmostSafe s = isSafe s || any isSafe (subsequences s)
 
 part1 :: String -> String
-part1 = show . length . filter id . map (isSafe . map read . words) . lines
+-- part1 = show . length . filter id . map (isSafe . map read . words) . lines
+part1 = show . length . filter isSafe . map (map read . words) . lines
 
 part2 :: String -> String
 part2 = show . length . filter id . map (isAlmostSafe . map read . words) . lines
